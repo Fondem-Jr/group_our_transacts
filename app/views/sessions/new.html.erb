@@ -1,2 +1,17 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div>
+<% if flash[:alert] %>
+<p id = "notice"><%= flash[:alert] %> </p>
+<% end %>
+<%= form_tag do %>
+<fieldset>
+    <legend>Please Log In </legend>
+    <div>
+    <%= label_tag :name, 'Name' %>
+    <%= text_field_tag :name, params[:name] %>
+    </div><br>
+    <div>
+    <%= submit_tag "Login" %>
+    </div>
+</fieldset>
+<% end %>
+</div>
