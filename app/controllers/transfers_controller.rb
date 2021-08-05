@@ -8,6 +8,10 @@ class TransfersController < ApplicationController
     @transfers = Transfer.all
   end
 
+  def index_all
+    @transfers = Transfer.all
+  end
+
   # GET /transfers/1 or /transfers/1.json
   def show
   end

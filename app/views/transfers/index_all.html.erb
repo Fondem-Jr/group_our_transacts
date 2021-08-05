@@ -13,7 +13,7 @@
 
   <tbody>
     <% @transfers.each do |transfer| %>
-      <% if transfer.user == @current_user %>
+      <% if transfer.user != @current_user %>
       <tr>
         <td><%= transfer.name %></td>
         <td><%= transfer.amount %></td>
