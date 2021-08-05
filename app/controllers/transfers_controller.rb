@@ -1,5 +1,7 @@
 class TransfersController < ApplicationController
   before_action :set_transfer, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: %i[ edit update destroy ]
+  
 
   # GET /transfers or /transfers.json
   def index
@@ -12,7 +14,8 @@ class TransfersController < ApplicationController
 
   # GET /transfers/new
   def new
-    @transfer = Transfer.new
+    #@transfer = Transfer.new
+    @transfer = current_user.transfers.build
   end
 
   # GET /transfers/1/edit
@@ -21,7 +24,7 @@ class TransfersController < ApplicationController
 
   # POST /transfers or /transfers.json
   def create
-    @transfer = Transfer.new(transfer_params)
+    @transfer = current_user.transfers.build(transfer_params)
 
     respond_to do |format|
       if @transfer.save
@@ -54,6 +57,11 @@ class TransfersController < ApplicationController
       format.html { redirect_to transfers_url, notice: "Transfer was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @transfer = current_user.transfers.find_by(id: params[:id])
+    redirect_to transfers_path, notice: "Not Authorized" if @transfer.nil?
   end
 
   private

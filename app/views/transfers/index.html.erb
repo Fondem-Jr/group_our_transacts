@@ -19,8 +19,10 @@
         <td><%= transfer.user_id %></td>
         <td><%= transfer.group_id %></td>
         <td><%= link_to 'Show', transfer %></td>
+        <% if transfer.user == @current_user %>
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
         <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

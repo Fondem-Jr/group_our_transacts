@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: %i[ edit update destroy ]
 
   # GET /groups or /groups.json
   def index
@@ -12,7 +13,8 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
+    #@group = Group.new
+    @group = current_user.groups.build
   end
 
   # GET /groups/1/edit
@@ -21,8 +23,8 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    @group = Group.new(group_params)
-
+    # @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: "Group was successfully created." }
@@ -54,6 +56,11 @@ class GroupsController < ApplicationController
       format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @group = current_user.groups.find_by(id: params[:id])
+    redirect_to groups_path, notice: "Not Authorized" if @group.nil?
   end
 
   private

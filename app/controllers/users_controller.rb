@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   skip_before_action :authorize, only: [:new, :create, :index]
+  before_action :correct_user, only: %i[ edit update destroy ]
 
   # GET /users or /users.json
   def index
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = current_user.users.build
   end
 
   # GET /users/1/edit
@@ -22,8 +23,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
-
+    @user = current_user.users.find_by(id: params[:id])
     respond_to do |format|
       if @user.save
         format.html { redirect_to users_url, notice: "User was successfully created." }
@@ -55,6 +55,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @user = current_user.users.find_by(id: params[:id])
+    redirect_to users_path, notice: "Not Authorized" if @user.nil?
   end
 
   private
