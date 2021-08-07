@@ -93,6 +93,7 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.0)
     minitest (5.14.4)
     msgpack (1.4.2)
@@ -199,6 +200,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
+  mini_magick
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

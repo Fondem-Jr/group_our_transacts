@@ -3,4 +3,6 @@ class User < ApplicationRecord
     
     has_many :groups
     has_many :transfers
+
+    has_one_attached :avatar
 end

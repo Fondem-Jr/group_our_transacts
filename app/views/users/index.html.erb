@@ -10,7 +10,7 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <% if user = current_user %>
+      <% if user = @current_user %>
       <tr>
         <td><%= user.name %></td>
         <td><%= link_to 'Show', user %></td>

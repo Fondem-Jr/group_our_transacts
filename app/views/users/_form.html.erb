@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :avatar, "Upload image profile", class: "form-label d-block text-center text-muted fs-4" %>
+    <%= form.file_field :avatar, class: "form-control fs-5 text-muted" %>
+  </div>
+  
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
