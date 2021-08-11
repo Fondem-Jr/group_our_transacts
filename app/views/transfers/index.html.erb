@@ -28,7 +28,7 @@
         <td><%= transfer.name %></td>
         <td><%= transfer.amount %></td>
         <td><%= transfer.user_id %></td>
-        <td><%= transfer.group_id %></td>
+        <td><%= transfer.group.icon %></td>
         <td><%= link_to 'Show', transfer %></td>
         
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
@@ -44,7 +44,8 @@
 
 <br>
 
-<%= link_to 'New Transfer', new_transfer_path %>
+<%= link_to 'New Transfer' , new_transfer_path, class: "link-btn btn
+                  btn-success"%>
 
 <br>
 
