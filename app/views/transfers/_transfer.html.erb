@@ -1,0 +1,31 @@
+<a href="<%= transfer_url(transfer.id) %>" class="text-decoration-none">
+  <div class="box-hvr card mb-3 mx-3 d-flex flex-row">
+    <div class="img-frame border border-warning rounded my-auto ml-2">
+      <% if transfer.group %>
+        <img src="<%= transfer.group.icon %>" alt="" class="">
+      <% else %>
+        <small class="text-muted d-block text-center mt-5 font-weight-bold">no group</small>
+      <% end %>
+    </div>
+    <div class="right-content flex-grow-1">
+      <div class="top-content d-flex p-3 justify-content-between">
+        <h5 class="text-muted m-0"><%= transfer.name %></h5>
+        <p class="font-weight-bold m-0 text-dark">
+          $<%= number_with_precision(transfer.amount, :precision => 2) %>
+        </p>
+      </div>
+
+      <div class="btm-content d-flex justify-content-between">
+        <p class="ml-3">
+          <small class="text-muted">
+            <%= transfer.created_at.strftime('%d %b %Y') %>
+          </small>
+        </p>
+
+        <% if controller_name == 'groups' && action_name == 'show' %>
+          <p class="text-muted font-weight-bold mr-3"><%= transfer.user.name %>'s</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</a>

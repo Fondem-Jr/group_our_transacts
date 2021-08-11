@@ -5,7 +5,7 @@
     <p class="font-weight-bold m-0">$<%= number_with_precision(@transfers.sum(:amount), :precision => 2) %></p>
   </div>
 
-
+<%= render @transfers %>
 
 
 <table>

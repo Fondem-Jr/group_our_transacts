@@ -12,6 +12,7 @@
   </thead>
 
   <tbody>
+    <% running_total = 0 %>
     <% @transfers.each do |transfer| %>
       <% if transfer.user != @current_user %>
       <tr>
@@ -24,6 +25,9 @@
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
         <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+
+        <% running_total = running_total + transfer.amount %>
+
       </tr>
     <% end %>
   </tbody>
@@ -32,3 +36,5 @@
 <br>
 
 <%= link_to 'New Transfer', new_transfer_path %>
+
+<h4 class="btn btn-success pull-right">Transfer total: <%= running_total %>

@@ -5,7 +5,7 @@ class TransfersController < ApplicationController
 
   # GET /transfers or /transfers.json
   def index
-    @transfers = Transfer.all
+    @transfers = Transfer.all.in_u_g.where(user_id: current_user.id).dsc
   end
 
   def index_all
@@ -14,12 +14,14 @@ class TransfersController < ApplicationController
 
   # GET /transfers/1 or /transfers/1.json
   def show
+    @transfer = Transfer.find_by(id: params[:id])
   end
 
   # GET /transfers/new
   def new
     #@transfer = Transfer.new
     @transfer = current_user.transfers.build
+    @groups = Group.all.collect { |group| [group.name, group.id] }
   end
 
   # GET /transfers/1/edit
