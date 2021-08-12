@@ -9,7 +9,7 @@ class TransfersController < ApplicationController
   end
 
   def index_all
-    @transfers = Transfer.all
+    @transfers = Transfer.in_u_g.where({ group_id: nil, user_id: current_user.id }).dsc
   end
 
   # GET /transfers/1 or /transfers/1.json

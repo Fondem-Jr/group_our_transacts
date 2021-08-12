@@ -1,4 +1,12 @@
 <h1>Transfers</h1>
+<div>
+  <div class="card mb-3 p-3 flex-row justify-content-between border-top-0" id="trn-total">
+    <h5 class="text-muted m-0">Total Amount</h5>
+    <p class="font-weight-bold m-0">$<%= number_with_precision(@transfers.sum(:amount), :precision => 2) %></p>
+  </div>
+
+<%= render @transfers %>
+
 
 <table>
   <thead>
@@ -7,6 +15,7 @@
       <th>Amount</th>
       <th>User</th>
       <th>Group</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,20 +23,20 @@
   <tbody>
     <% running_total = 0 %>
     <% @transfers.each do |transfer| %>
-      <% if transfer.user != @current_user %>
+      <% if transfer.user == @current_user %>
       <tr>
         <td><%= transfer.name %></td>
         <td><%= transfer.amount %></td>
         <td><%= transfer.user_id %></td>
-        <td><%= transfer.group_id %></td>
+        <td><%= transfer.group.icon %></td>
         <td><%= link_to 'Show', transfer %></td>
         
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
         <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-
-        <% running_total = running_total + transfer.amount %>
-
+        <% if transfer.user == @current_user %>
+          <% running_total = running_total + transfer.amount %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -35,6 +44,9 @@
 
 <br>
 
-<%= link_to 'New Transfer', new_transfer_path %>
+<%= link_to 'New Transfer' , new_transfer_path, class: "link-btn btn
+                  btn-success"%>
 
-<h4 class="btn btn-success pull-right">Transfer total: <%= running_total %>
+<br>
+
+<h4 class="pull-right">Transfer total: <%= running_total%>
