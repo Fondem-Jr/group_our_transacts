@@ -1,0 +1,11 @@
+ <%= link_to(group_url(group.id), class: "text-decoration-none") do %>
+  <div class="box-hvr card mb-3 mx-3 d-flex flex-row p-3 justify-content-between">
+    <img src="<%= group.icon %>" alt="" class="border border-warning rounded my-auto">
+    <p class="text-decoration-none h4 m-0 align-self-center px-1  overflow-hidden">
+      <%= group.name %>
+    </p>
+    <p class="date m-0 pr-sm-2 align-self-center text-center">
+      <small class="text-muted"><%= group.created_at.strftime('%d %b %Y') %></small>
+    </p>
+  </div>
+<% end %>

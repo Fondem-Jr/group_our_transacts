@@ -31,3 +31,14 @@
 <br>
 
 <%= link_to 'New Group', new_group_path %>
+
+
+<% provide(:title, 'Groups') %>
+<div>
+  <%= render @groups %>
+</div>
+
+<%= link_to new_group_path, class: "link-btn btn
+                  btn-success w-100 p-4 rounded-0" do %>
+  <span class="p-3 border border-light">NEW GROUP</span>
+<% end %>
