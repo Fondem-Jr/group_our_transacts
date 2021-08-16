@@ -10,12 +10,13 @@
 
 <p>
   <strong>User:</strong>
-  <%= @transfer.user_id %>
+  <%= @transfer.user.name%>
 </p>
 
 <p>
   <strong>Group:</strong>
-  <%= @transfer.group_id %>
+  <%= @transfer.group.name %>
+  <%= image_tag(@transfer.group.icon, width: '75px', height: '75px') %>
 </p>
 
 <%= link_to 'Edit', edit_transfer_path(@transfer) %> |
