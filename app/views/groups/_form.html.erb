@@ -12,23 +12,22 @@
   <% end %>
 
    <div class="field">
-    <%= form.label :icon %>
-    <%= form.file_field :icon %>
+    <%= form.label :icon, "Upload an image to represent your group", class: "form-label d-block text-center text-muted fs-4 mt-5" %>
+    <%= form.file_field :icon, class: "form-control text-muted mb-3" %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "value-input", 
+    class: "form-control fs-4 text-muted text-center", placeholder: "Type the name of the group" %>
   </div>
 
-
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.text_field :user_id, class: "value-input", 
+    class: "form-control fs-4 mt-3 text-muted text-center" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn2 btn-outline-green w-25 border border-white mt-3 " %>
   </div>
 <% end %>
 

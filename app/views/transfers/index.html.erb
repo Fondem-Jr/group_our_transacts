@@ -28,7 +28,7 @@
         <td><%= transfer.name %></td>
         <td><%= transfer.amount %></td>
         <td><%= transfer.user_id %></td>
-        <td><%= transfer.group.icon %></td>
+        <td><%= image_tag(transfer.group.icon, width: '100px') %></td>
         <td><%= link_to 'Show', transfer %></td>
         
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
