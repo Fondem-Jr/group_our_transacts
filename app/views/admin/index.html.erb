@@ -1,29 +1,29 @@
-  <div class="container-fluid">
-    <h1><%= @current_user.name %></h1>
+<div class="container-fluid p-3 border bg-light">
+  <div class="d-flex justify-content-center p-3 "> 
+    <% if @current_user.avatar.persisted? %>
+      <%= link_to image_tag(@current_user.avatar, style: "height:150px;width:150px;"), root_path %>
+    <% else %>
+      <%= link_to image_tag("https://th.bing.com/th/id/R.b68996a16310321562dabbe0d9f6b878?rik=bdrscxp1W4D2ew&pid=ImgRaw&r=0",
+        style: "height:150px;width:150px;"), root_path %>
+    <% end %>
+  </div>
+  <h1 class="text-muted d-block text-center mt-2 font-weight-bold text-uppercase p-3"><%= @current_user.name %></h1>
+    <ul class="navbar-nav me-auto mb-lg-0">
+      <li class="nav-item p-3">
+        <%= link_to 'All my transfers', transfers_path, class: "nav-link text-center fs-2" %>
+      </li>
+      <li class="nav-item mt-2 p-3">
+        <%= link_to 'All external transfers', transfers_all_path, class: "nav-link text-center  fs-2" %>
+      </li>
+      <li class="nav-item mt-2 p-3">
+        <%= link_to 'All groups', groups_path, class: "nav-link text-center fs-2" %>
+      </li>
+      <li class="nav-item mt-2 p-3">
+        <%= link_to 'Log out', sessions_destroy_path, class: "nav-link text-center " %>
+      </li>
+    </ul>
 
-         <% if @current_user.avatar.persisted? %>
-        <%= link_to image_tag(@current_user.avatar, style: "height:164px;width:164px;"), root_path %>
-      <% else %>
-        <%= link_to image_tag("http://a4.mzstatic.com/us/r1000/046/Purple/bd/8f/fd/mzl.emkswtfe.jpg",
-        style: "height:164px;width:164px;"), root_path %>
-      <% end %>
-  
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <%= link_to 'All my transactions', transfers_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'All external transactions', transfers_all_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'All groups', groups_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'Log out', sessions_destroy_path, class: "nav-link" %>
-            </li>
-        </ul>
-
-    </div>
+</div>
 
     
 

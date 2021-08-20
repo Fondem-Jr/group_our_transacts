@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <div class="container-fluid">
-    <%= link_to 'Group Our Transactions', root_path, class:"navbar-brand" %>
+    <%= link_to 'Group Our Transfers', root_path, class:"navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,10 +9,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <% if @current_user != nil %>
         <li class="nav-item">
-          <%= link_to 'All my transactions', transfers_path, class: "nav-link" %>
+          <%= link_to 'All my transfers', transfers_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-                <%= link_to 'All external transactions', transfers_all_path, class: "nav-link" %>
+                <%= link_to 'All external transfers', transfers_all_path, class: "nav-link" %>
             </li>
         <li class="nav-item">
           <%= link_to 'All groups', groups_path, class: "nav-link" %>
@@ -22,10 +22,10 @@
         </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to 'Log in', login_path, class: "nav-link" %>
+          <%= link_to 'Log In', login_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign up', new_user_path, class: "nav-link" %>
+          <%= link_to 'Sign Up', new_user_path, class: "nav-link" %>
         </li>
         <% end %>
       </ul>

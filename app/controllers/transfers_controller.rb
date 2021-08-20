@@ -31,7 +31,8 @@ class TransfersController < ApplicationController
   # POST /transfers or /transfers.json
   def create
     @transfer = current_user.transfers.build(transfer_params)
-
+    @transfer.group_id = Group.all.where('name = ?', params['transfer']['group_id']).select(:id).first.id
+    @transfer.user_id = current_user.id
     respond_to do |format|
       if @transfer.save
         format.html { redirect_to @transfer, notice: "Transfer was successfully created." }
@@ -78,6 +79,6 @@ class TransfersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transfer_params
-      params.require(:transfer).permit(:name, :amount, :user_id, :group_id)
+      params.require(:transfer).permit(:name, :amount, :user_id)
     end
 end

@@ -15,13 +15,12 @@
     <%= form.label :avatar, "Upload image profile", class: "form-label d-block text-center text-muted fs-4" %>
     <%= form.file_field :avatar, class: "form-control fs-5 text-muted" %>
   </div>
-  
+
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control fs-5 text-muted mt-3 ", placeholder: "Username" %>
   </div>
 
-  <div class="actions">
+  <div class="actions mt-3">
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,16 +1,15 @@
-<div>
+<div class="p-3 border bg-light" >
 <% if flash[:alert] %>
 <p id = "notice"><%= flash[:alert] %> </p>
 <% end %>
 <%= form_tag do %>
-<fieldset>
-    <legend>Please Log In </legend>
-    <div>
-    <%= label_tag :name, 'Name' %>
-    <%= text_field_tag :name, params[:name] %>
+<fieldset class="container px-4">
+    <legend class="p-3">Please log in </legend>
+    <div class="p-3 border bg-light">
+    <%= text_field_tag :name, params[:name], class: "form-control fs-5 text-muted mt-3 ", placeholder: "Name" %>
     </div><br>
-    <div>
-    <%= submit_tag "Login" %>
+    <div class="col-auto">
+    <%= submit_tag "Login", :class => "btn btn-primary active d-grid col-6 mx-auto" %>
     </div>
 </fieldset>
 <% end %>

@@ -12,24 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, "Select currency:", class: "form-label" %>
+    <%= form.select :name, ['Euro', 'USD', 'Pound'],
+        {}, {class: "form-select form-select-lg mb-3"}  %>
   </div>
 
   <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.label :group_id, "Select group:", class: "form-label" %>
+    <%= form.select :group_id, Group.select(:name).map(&:name),
+        {}, {class: "form-select form-select-lg mb-3"} %>
   </div>
 
   <div class="field">
-    <%# <%= form.label :user_id %>
-    <%= form.text_field :user_id, type: :hidden%>
+    <%= form.label :amount, "Amount:", class: "form-label" %>
+    <%= form.number_field :amount, step: :any, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :group_id %>
-    <%= form.text_field :group_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
