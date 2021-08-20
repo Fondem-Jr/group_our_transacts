@@ -1,1 +1,1 @@
-json.partial! "transfers/transfer", transfer: @transfer
+json.partial! 'transfers/transfer', transfer: @transfer
