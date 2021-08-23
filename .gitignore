@@ -6,6 +6,7 @@
 node_modules/
 # Ignore bundler config.
 /.bundle
+echo coverage >> .gitignore
 
 # Ignore all logfiles and tempfiles.
 /log/*
