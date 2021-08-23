@@ -14,9 +14,15 @@
 </p>
 
 <p>
-  <strong>Group:</strong>
-  <%= @transfer.group.name %>
-  <%= image_tag(@transfer.group.icon, width: '75px', height: '75px') %>
+  <% if @transfer.group %>
+    <strong>Group:</strong>
+    <%= @transfer.group.name %>
+    <%= image_tag(@transfer.group.icon, width: '75px', height: '75px') %>
+  <% else %>
+    <div class="img-frame border border-warning rounded my-auto ml-2">
+          <small class="text-muted d-block text-center mt-5 font-weight-bold">no group</small>
+    </div>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_transfer_path(@transfer) %> |
