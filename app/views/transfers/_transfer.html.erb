@@ -1,10 +1,10 @@
 <a href="<%= transfer_url(transfer.id) %>" class="text-decoration-none">
   <div class="box-hvr card mb-3 mx-3 d-flex flex-row">
-    <div class="img-frame border border-warning rounded my-auto ml-2">
+    <div class="img-frame border border-primary rounded ml-2">
       <% if transfer.group %>
         <%= image_tag(transfer.group.icon, width: '100px') %>
       <% else %>
-        <small class="text-muted d-block text-center mt-5 font-weight-bold">no group</small>
+        <small class="text-center text-muted d-block fw-bold">No Group</small>
       <% end %>
     </div>
     <div class="right-content flex-grow-1">
@@ -23,7 +23,7 @@
         </p>
 
         <% if controller_name == 'groups' && action_name == 'show' %>
-          <p class="text-muted font-weight-bold mr-3"><%= transfer.user.name %>'s</p>
+          <p class="text-muted fw-bold mr-3"><%= transfer.user.name %>'s</p>
         <% end %>
       </div>
     </div>

@@ -53,6 +53,12 @@ RSpec.describe Transfer, type: :model do
       expect(@transfer).to be_valid
     end
 
+    it 'transfer belongs to a user' do
+      @transfer.user_id = nil
+      @transfer.save
+      expect(@transfer.valid?).to eq false
+    end
+
   end
 
   after(:all) do

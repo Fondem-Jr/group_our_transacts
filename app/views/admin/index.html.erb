@@ -7,7 +7,7 @@
         style: "height:150px;width:150px;"), root_path %>
     <% end %>
   </div>
-  <h1 class="text-muted d-block text-center mt-2 font-weight-bold text-uppercase p-3"><%= @current_user.name %></h1>
+  <h1 class="text-muted d-block text-center mt-2 fw-bold text-uppercase p-3"><%= @current_user.name %></h1>
     <ul class="navbar-nav me-auto mb-lg-0">
       <li class="nav-item p-3">
         <%= link_to 'All my transfers', transfers_path, class: "nav-link text-center fs-2" %>
