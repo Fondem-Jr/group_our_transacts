@@ -6,20 +6,20 @@ RSpec.describe Transfer, type: :model do
   before(:all) do
     @user = User.create(name: 'User')
   end
-  subject {
-    described_class.new(name: "Anything",
-      amount: "100")
-  }
+  subject do
+    described_class.new(name: 'Anything',
+                        amount: '100')
+  end
 
-  it "is not valid without a name" do
+  it 'is not valid without a name' do
     subject.name = nil
     expect(subject).to_not be_valid
   end
-  it "is not valid without a amount" do
+  it 'is not valid without a amount' do
     subject.amount = nil
     expect(subject).to_not be_valid
   end
- 
+
   it 'has a name with at least 2 characters long' do
     transfer = Transfer.new(
       name: '',
@@ -32,12 +32,11 @@ RSpec.describe Transfer, type: :model do
 
   it 'should save a transfer successfully' do
     transfer = Transfer.new(name: 'love',
-      user: current_user,
-      amount: 20,
-      group_id: group.id).save
+                            user: current_user,
+                            amount: 20,
+                            group_id: group.id).save
     expect(transfer).to eq(true)
   end
-
 
   context 'test using a created user' do
     before(:each) do
@@ -58,7 +57,6 @@ RSpec.describe Transfer, type: :model do
       @transfer.save
       expect(@transfer.valid?).to eq false
     end
-
   end
 
   after(:all) do
@@ -66,5 +64,4 @@ RSpec.describe Transfer, type: :model do
       Group.destroy_all &
       Transfer.destroy_all
   end
-
 end

@@ -21,7 +21,7 @@ RSpec.describe Group, type: :model do
       expect(@group.valid?).to eq(true)
     end
 
-    it "can not create a group with an empty name" do
+    it 'can not create a group with an empty name' do
       @group1 = Group.create(name: '')
       expect(@group1.valid?).to eq false
     end
