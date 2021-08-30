@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :transfers
   resources :groups
-  #get 'admin/index'
+  #get 'admin/home'
   #get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'

@@ -1,25 +1,30 @@
-<div class="container-fluid p-3 border bg-light">
-  <div class="d-flex justify-content-center p-3 "> 
+<% provide(:title, 'Profile') %>
+
+<div class="container-fluid p-3 border maincolor">
+  <div class="d-flex justify-content-center p-3 img-circle"> 
     <% if @current_user.avatar.persisted? %>
-      <%= link_to image_tag(@current_user.avatar, style: "height:150px;width:150px;"), root_path %>
+      <%= link_to image_tag(@current_user.avatar, style: "height:150px;width:150px;", class: "img-circle"), root_path %>
     <% else %>
       <%= link_to image_tag("https://th.bing.com/th/id/R.b68996a16310321562dabbe0d9f6b878?rik=bdrscxp1W4D2ew&pid=ImgRaw&r=0",
         style: "height:150px;width:150px;"), root_path %>
     <% end %>
   </div>
-  <h1 class="text-muted d-block text-center mt-2 fw-bold text-uppercase p-3"><%= @current_user.name %></h1>
+  <h2 class="d-block text-center mt-2 fw-bold text-uppercase p-3"><%= @current_user.name %></h2><hr>
     <ul class="navbar-nav me-auto mb-lg-0">
       <li class="nav-item p-3">
-        <%= link_to 'All my transfers', transfers_path, class: "nav-link text-center fs-2" %>
+        <%= link_to 'All my transfers', transfers_path, class: "nav-link text-center fs-2 text-white" %>
       </li>
+      <hr>
       <li class="nav-item mt-2 p-3">
-        <%= link_to 'All external transfers', transfers_all_path, class: "nav-link text-center  fs-2" %>
+        <%= link_to 'All external transfers', transfers_all_path, class: "nav-link text-center  fs-2 text-white" %>
       </li>
+      <hr>
       <li class="nav-item mt-2 p-3">
-        <%= link_to 'All groups', groups_path, class: "nav-link text-center fs-2" %>
+        <%= link_to 'All groups', groups_path, class: "nav-link text-center fs-2 text-white" %>
       </li>
+      <hr>
       <li class="nav-item mt-2 p-3">
-        <%= link_to 'Log out', sessions_destroy_path, class: "nav-link text-center " %>
+        <%= link_to 'Log out', sessions_destroy_path, class: "nav-link text-center text-white" %>
       </li>
     </ul>
 

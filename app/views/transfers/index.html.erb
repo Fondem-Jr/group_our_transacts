@@ -1,12 +1,12 @@
-<h1>Transfers</h1>
-<div>
+<div class="bg-light">
   <div class="card mb-3 p-3 flex-row justify-content-between border-top-0">
-    <h5 class="text-muted m-0">Total Amount</h5>
+    <h5 class="text-muted m-0">Total transfer</h5>
     <p class="fw-bold m-0">$<%= number_with_precision(@transfers.sum(:amount), :precision => 2) %></p>
   </div>
 
-<%= render @transfers %>
-
-<%= link_to 'New Transfer' , new_transfer_path, class: "link-btn btn
-                  btn-success"%>
-<br>
+  <%= render @transfers %>
+  <div class="downfoot">
+      <%= link_to 'New Transfer' , new_transfer_path, class: "link-btn btn border border-white text-white d-block p-3 m-3 text-uppercase"%>
+  </div>
+  <br>
+</div>
