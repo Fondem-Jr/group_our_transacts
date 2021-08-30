@@ -14,20 +14,20 @@
  *= require_self
  */
 .secondcolor {
-    background-color: #5fb523;
+  background-color: #5fb523;
 }
 
 .maincolor {
-    background-color: #3778c2;
+  background-color: #3778c2;
 }
 
 .downfoot {
-    position: absolute;
-    bottom: 10px;
-    width: 90%;
-    background-color: #5fb523;
+  position: absolute;
+  bottom: 10px;
+  width: 90%;
+  background-color: #5fb523;
 }
 
 hr {
-    color: white;
+  color: white;
 }

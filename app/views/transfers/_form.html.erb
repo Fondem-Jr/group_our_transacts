@@ -17,9 +17,10 @@
         {}, {class: "form-select form-select-lg mb-3"}  %>
   </div>
 
-   <div class="field">
-    <%= form.text_field :group_id, class: "value-input", 
-    class: "form-control fs-4 text-muted text-center", placeholder: "Type the name of the group" %>
+  <div class="field">
+    <%= form.label :group_id, "Select group:", class: "form-label" %>
+    <%= form.select :group_id, Group.select(:name).map(&:name),
+        {}, {class: "form-select form-select-lg mb-3"}  %>
   </div>
 
   <div class="field">

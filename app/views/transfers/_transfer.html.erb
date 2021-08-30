@@ -1,8 +1,9 @@
-<a href="<%= transfer_url(transfer.id) %>" class="text-decoration-none">
+<a href="<%= transfer_url(transfer.id) %>" 
+class="text-decoration-none">
   <div class="box-hvr card mb-3 mx-3 d-flex flex-row">
-    <div class="img-frame border border-primary rounded ml-2">
+    <div class="img-frame rounded pt-2">
       <% if transfer.group %>
-        <%= image_tag(transfer.group.icon, width: '100px') %>
+      <%= image_tag(transfer.group.icon, width: '75px', height: '75px') %>
       <% else %>
         <small class="text-center text-muted d-block fw-bold">No Group</small>
       <% end %>

@@ -1,3 +1,12 @@
 // Place all the styles related to the Transfers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.t-total {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: -16px;
+}
+
+.box-hvr:hover {
+  box-shadow: #80808082 2px 2px 2px 2px;
+}
