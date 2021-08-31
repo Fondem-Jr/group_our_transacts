@@ -17,7 +17,9 @@
   <% if @transfer.group %>
     <strong>Group:</strong>
     <%= @transfer.group.name %>
-    <%= image_tag(@transfer.group.icon, width: '75px', height: '75px') %>
+    <% if @transfer.group.icon.attached? %>
+      <%= image_tag(@transfer.group.icon, width: '75px', height: '75px') %>
+    <% end %>
   <% else %>
     <div class="img-frame border border-primary rounded">
           <small class="text-muted d-block text-center fw-bold">No Group</small>

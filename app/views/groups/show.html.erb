@@ -1,31 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<!--
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
-
-<div>
-    <%= image_tag @group.icon, width: '400px' %>
-</div>
-<p>
-  <strong>User:</strong>
-  <%= @group.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
-
--->
-
-
 <% provide(:title, 'Group Details') %>
 
 <ul class="card mx-3 list-group list-group-flush p-3">
   <li class="list-group-item p-0 d-flex justify-content-between">
     <h4 class="mt-2 mb-4"><%= @group.name %></h4>
-    <%= image_tag @group.icon, width: '100px' %>
+    <% if @group.icon.attached? %>
+      <%= image_tag @group.icon, width: '100px' %>
+    <% end %>
   </li>
 
   

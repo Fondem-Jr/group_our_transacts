@@ -4,11 +4,11 @@ class TransfersController < ApplicationController
 
   # GET /transfers or /transfers.json
   def index
-    @transfers = Transfer.in_u_g.where.not(group_id: 13).where(user_id: current_user.id ).dsc
+    @transfers = Transfer.in_u_g.where.not(group_id: 18).where(user_id: current_user.id ).dsc
   end
 
   def index_all
-    @transfers = Transfer.in_u_g.where({ group_id: 13, user_id: current_user.id }).dsc
+    @transfers = Transfer.in_u_g.where({ group_id: 18, user_id: current_user.id }).dsc
   end
 
   # GET /transfers/1 or /transfers/1.json

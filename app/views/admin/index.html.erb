@@ -2,7 +2,7 @@
 
 <div class="container-fluid p-3 border maincolor">
   <div class="d-flex justify-content-center p-3 img-circle"> 
-    <% if @current_user.avatar.persisted? %>
+    <% if @current_user.avatar.attached? %>
       <%= link_to image_tag(@current_user.avatar, style: "height:150px;width:150px;", class: "img-circle"), root_path %>
     <% else %>
       <%= link_to image_tag("https://th.bing.com/th/id/R.b68996a16310321562dabbe0d9f6b878?rik=bdrscxp1W4D2ew&pid=ImgRaw&r=0",
