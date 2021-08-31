@@ -15,7 +15,6 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    # @group = Group.new
     @group = current_user.groups.build
   end
 
@@ -24,7 +23,6 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    # @group = Group.new(group_params)
     @group = current_user.groups.build(group_params)
     @group.user_id = current_user.id
     respond_to do |format|

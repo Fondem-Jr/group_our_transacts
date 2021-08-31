@@ -18,7 +18,6 @@ class TransfersController < ApplicationController
 
   # GET /transfers/new
   def new
-    # @transfer = Transfer.new
     @transfer = current_user.transfers.build
     @groups = Group.all.collect { |group| [group.name, group.id] }
   end
