@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Groups", type: :system do
+RSpec.describe 'Groups', type: :system do
   before(:each) do
     User.create(name: 'User1')
     Group.create(name: 'Group1', user_id: User.where(name: 'User1').first.id)

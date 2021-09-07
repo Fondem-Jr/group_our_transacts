@@ -4,7 +4,7 @@ class TransfersController < ApplicationController
 
   # GET /transfers or /transfers.json
   def index
-    @transfers = Transfer.in_u_g.where.not(group_id: 18).where(user_id: current_user.id ).dsc
+    @transfers = Transfer.in_u_g.where.not(group_id: 18).where(user_id: current_user.id).dsc
   end
 
   def index_all

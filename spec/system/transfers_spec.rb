@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Transfers", type: :system do
+RSpec.describe 'Transfers', type: :system do
   before(:each) do
     User.create(name: 'User1')
     Group.create(name: 'Group1', user_id: User.where(name: 'User1').first.id)
     Transfer.create(name: 'Euro', amount: 5,
-                      user_id: User.where(name: 'User1').first.id, group_id: Group.where(name: 'Group1').first.id)
+                    user_id: User.where(name: 'User1').first.id, group_id: Group.where(name: 'Group1').first.id)
     driven_by(:rack_test)
   end
 

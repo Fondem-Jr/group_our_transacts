@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   before(:each) do
     User.create(name: 'User1')
     driven_by(:rack_test)
