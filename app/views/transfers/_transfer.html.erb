@@ -12,7 +12,7 @@ class="text-decoration-none">
       <div class="top-content d-flex p-3 justify-content-between">
         <h5 class="text-muted m-0"><%= transfer.name %></h5>
         <p class="font-weight-bold m-0 text-dark">
-          $<%= number_with_precision(transfer.amount, :precision => 2) %>
+          <%= number_to_currency(transfer.amount) %>
         </p>
       </div>
 
