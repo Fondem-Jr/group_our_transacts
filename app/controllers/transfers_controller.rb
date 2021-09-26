@@ -28,7 +28,6 @@ class TransfersController < ApplicationController
   # POST /transfers or /transfers.json
   def create
     @transfer = current_user.transfers.build(transfer_params)
-    # @transfer.group_id = Group.all.where('name = ?', params['transfer']['group_id']).select(:id).first.id
     @transfer.user_id = current_user.id
     respond_to do |format|
       if @transfer.save
