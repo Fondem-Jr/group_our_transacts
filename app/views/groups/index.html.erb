@@ -1,0 +1,10 @@
+<% provide(:title, 'Groups') %>
+
+<h1 class="text-muted d-block text-center mt-2 fw-bold text-uppercase p-3">Groups</h1>
+<div>
+  <%= render @groups %>
+</div>
+
+<%= link_to new_group_path, class: "link-btn btn p-4 rounded-0 downfoot" do %>
+  <div class="p-3 border border-light text-white">NEW GROUP</div>
+<% end %>

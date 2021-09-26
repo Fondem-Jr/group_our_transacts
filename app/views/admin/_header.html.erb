@@ -1,0 +1,38 @@
+<nav class="navbar navbar-dark maincolor">
+
+  <div class="container-fluid">
+    <%= link_to 'Group Our Transfers', root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <% if @current_user != nil %>
+        <li class="nav-item">
+          <%= link_to 'All my transfers', transfers_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+                <%= link_to 'All external transfers', transfers_all_path, class: "nav-link" %>
+            </li>
+        <li class="nav-item">
+          <%= link_to 'All groups', groups_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Log out', sessions_destroy_path, class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to 'Log In', login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_user_path, class: "nav-link" %>
+        </li>
+        <% end %>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

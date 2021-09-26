@@ -1,0 +1,31 @@
+<p>
+  <strong>Name:</strong>
+  <%= @transfer.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @transfer.amount %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @transfer.user.name%>
+</p>
+
+<p>
+  <% if @transfer.group %>
+    <strong>Group:</strong>
+    <%= @transfer.group.name %>
+    <% if @transfer.group.icon.attached? %>
+      <%= image_tag(@transfer.group.icon, width: '75px', height: '75px') %>
+    <% end %>
+  <% else %>
+    <div class="img-frame border border-primary rounded">
+          <small class="text-muted d-block text-center fw-bold">No Group</small>
+    </div>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
+<%= link_to 'Back', transfers_path %>

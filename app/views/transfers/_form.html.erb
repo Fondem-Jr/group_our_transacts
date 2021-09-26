@@ -1,0 +1,34 @@
+<%= form_with(model: transfer) do |form| %>
+  <% if transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
+
+      <ul>
+        <% transfer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "Select currency:", class: "form-label" %>
+    <%= form.select :name, ['Euro', 'USD', 'Pound'],
+        {}, {class: "form-select form-select-lg mb-3"}  %>
+  </div>
+
+  <div class="field">
+  <%= collection_select(:transfer, :group_id, Group.all, :id, :name, { :prompt => '' }, class: "form-select form-select-lg mb-3" ) %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :amount, step: :any, class: "form-control mt-3", placeholder: "Amount" %>
+  </div>
+
+
+  <div class="actions downfoot">
+    <div class="p-3">
+      <%= form.submit class: "btn w-100 text-white border border-white text-white d-block text-uppercase"%>
+    </div>
+  </div>
+<% end %>

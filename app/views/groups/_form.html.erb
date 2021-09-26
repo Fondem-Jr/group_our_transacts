@@ -1,0 +1,30 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= form.label :icon, "Upload an image to represent your group", class: "form-label d-block text-center text-muted fs-4 mt-5" %>
+    <%= form.file_field :icon, class: "form-control text-muted mb-3" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :name, class: "value-input form-control fs-4 text-muted text-center", placeholder: "Type the name of the group" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :user_id, class: "value-input form-control fs-4 mt-3 text-muted text-center" %>
+  </div>
+
+  <div class="actions downfoot">
+    <div class="p-3"><%= form.submit class: "btn w-100 text-white border border-white text-uppercase" %></div>
+  </div>
+<% end %>

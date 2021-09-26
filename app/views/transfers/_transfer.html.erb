@@ -1,0 +1,48 @@
+<a href="<%= transfer_url(transfer.id) %>" 
+class="text-decoration-none">
+  <div class="box-hvr card mb-3 mx-3 d-flex flex-row">
+    <div class="img-frame rounded pt-2">
+      <% if transfer.group %>
+      <%= image_tag(transfer.group.icon, width: '75px', height: '75px') %>
+      <% else %>
+        <small class="text-center text-muted d-block fw-bold">No Group</small>
+      <% end %>
+    </div>
+    <div class="right-content flex-grow-1">
+      <div class="top-content d-flex p-3 justify-content-between">
+        <% if transfer.name == 'USD' %>
+        <h5 class="text-muted m-0"><%= transfer.name %></h5>
+        <p class="font-weight-bold m-0 text-dark">
+          <%= number_to_currency(transfer.amount) %>
+        </p>
+
+        <% elsif transfer.name == 'Euro' %>
+        <h5 class="text-muted m-0"><%= transfer.name %></h5>
+        <p class="font-weight-bold m-0 text-dark">
+          €<%= number_with_precision(transfer.amount, :precision => 2) %>
+        </p>
+        <% transfer.amount = transfer.amount*1.17 %>
+      
+        <% elsif transfer.name == 'Pound' %>
+        <h5 class="text-muted m-0"><%= transfer.name %></h5>
+        <p class="font-weight-bold m-0 text-dark">
+          £<%= number_with_precision(transfer.amount, :precision => 2) %>
+        </p>
+        <% transfer.amount = transfer.amount*1.37 %>
+        <% end %>
+      </div>
+      
+      <div class="btm-content d-flex justify-content-between">
+        <p class="ml-3">
+          <small class="text-muted">
+            <%= transfer.created_at.strftime('%d %b %Y') %>
+          </small>
+        </p>
+
+        <% if controller_name == 'groups' && action_name == 'show' %>
+          <p class="text-muted fw-bold mr-3"><%= transfer.user.name %>'s</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</a>

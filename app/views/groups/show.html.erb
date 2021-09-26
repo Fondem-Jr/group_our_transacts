@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(:title, 'Group Details') %>
+
+<ul class="card mx-3 list-group list-group-flush p-3">
+  <li class="list-group-item p-0 d-flex justify-content-between">
+    <h4 class="mt-2 mb-4"><%= @group.name %></h4>
+    <% if @group.icon.attached? %>
+      <%= image_tag @group.icon, width: '100px' %>
+    <% end %>
+  </li>
+
+  
+
+  <li class="list-group-item p-0 pt-3">
+    <%= render @transfers %>
+  </li>
+
+  <li class="list-group-item d-flex justify-content-between p-0 pt-3">
+    <p class="m-0">TOTAL AMOUNT</p>
+    <span class="font-weight-bold">$<%= number_with_precision(@transfers.sum(:amount), :precision => 2) %></span>
+  </li>
+</ul>
+
+  <% flash.each do |m_type, msg| %>
+    <div class="alert alert-<%= m_type %> w-75 mx-auto text-center mt-3">
+      <%= msg %>
+    </div>
+  <% end %>
+<%= link_to new_group_path, class: "link-btn btn downfoot p-4 rounded-0" do %>
+  <div class="p-3 border border-white d-block text-white">NEW GROUP</div>
+<% end %>

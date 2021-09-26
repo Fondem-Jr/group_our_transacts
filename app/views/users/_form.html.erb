@@ -1,0 +1,28 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :avatar, "Upload image profile", class: "form-label d-block text-center text-muted fs-4" %>
+    <%= form.file_field :avatar, class: "form-control fs-5 text-muted" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :name, class: "form-control fs-5 text-muted mt-3 ", placeholder: "Username" %>
+  </div>
+
+  <div class="actions downfoot">
+    <div class="p-3">
+      <%= form.submit class: "btn w-100 text-white border border-white text-white d-block text-uppercase"%>
+    </div>
+  </div>
+<% end %>

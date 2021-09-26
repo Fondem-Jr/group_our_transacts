@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<div>
+    <%= image_tag @user.avatar, width: '400px' %>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
