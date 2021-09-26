@@ -2,10 +2,10 @@
 class="text-decoration-none">
   <div class="box-hvr card mb-3 mx-3 d-flex flex-row">
     <div class="img-frame rounded pt-2">
-      <% if transfer.group.icon.attached? %>
+      <% if transfer.group %>
       <%= image_tag(transfer.group.icon, width: '75px', height: '75px') %>
       <% else %>
-        <small class="text-center text-muted d-block fw-bold">No Icon</small>
+        <small class="text-center text-muted d-block fw-bold">No Group</small>
       <% end %>
     </div>
     <div class="right-content flex-grow-1">
@@ -46,4 +46,3 @@ class="text-decoration-none">
     </div>
   </div>
 </a>
-

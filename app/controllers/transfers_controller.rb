@@ -4,11 +4,11 @@ class TransfersController < ApplicationController
 
   # GET /transfers or /transfers.json
   def index
-    @transfers = Transfer.in_u_g.where.not(group_id: 18).where(user_id: current_user.id).dsc
+    @transfers = Transfer.in_u_g.where.not(group_id: nil).where(user_id: current_user.id).dsc
   end
 
   def index_all
-    @transfers = Transfer.in_u_g.where({ group_id: 18, user_id: current_user.id }).dsc
+    @transfers = Transfer.in_u_g.where({ group_id: nil, user_id: current_user.id }).dsc
   end
 
   # GET /transfers/1 or /transfers/1.json
@@ -28,7 +28,7 @@ class TransfersController < ApplicationController
   # POST /transfers or /transfers.json
   def create
     @transfer = current_user.transfers.build(transfer_params)
-    @transfer.group_id = Group.all.where('name = ?', params['transfer']['group_id']).select(:id).first.id
+    #@transfer.group_id = Group.all.where('name = ?', params['transfer']['group_id']).select(:id).first.id
     @transfer.user_id = current_user.id
     respond_to do |format|
       if @transfer.save
@@ -77,6 +77,6 @@ class TransfersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transfer_params
-    params.require(:transfer).permit(:name, :amount, :user_id)
+    params.require(:transfer).permit(:name, :amount, :group_id)
   end
 end
